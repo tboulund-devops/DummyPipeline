@@ -14,5 +14,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Print Hello World
-        run: echo "Hello World 
-          from $GITHUB_REPOSITORY"
+        run: | 
+          echo "Hello World"
+          echo "Well, hi!" >> hi.txt
+
+      - name: Collect artifact
+        uses: actions/upload-artifact@4
+        with:
+          name: hi-file
+          path: hi.txt
